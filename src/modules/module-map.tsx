@@ -2,12 +2,10 @@ import { Map } from '@/components/map';
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-const init = (rootId: string = ".rootMap") => {
-  console.log("rootId", rootId)
-  const root = document.querySelector(rootId);
-  console.log("Root hello -//", root)
-
-  if (root) {
+const init = (root: Element) => {
+  if (!root) {
+    console.log("Please provide the root element for render");
+  } else {
     ReactDOM.render(<Map />, root);
   }
 };

@@ -11,7 +11,8 @@
 <body>
     <script>
         document.addEventListener("DOMContentLoaded", () => {
-            moduleMap.init();
+            const elem = document.querySelector(".rootMap")
+            moduleMap.init(elem);
         })
     </script>
     <div id="app">
