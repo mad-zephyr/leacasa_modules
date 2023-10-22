@@ -1,3 +1,5 @@
+import "@/assets/fonts/fonts.sass";
+import "@/assets/styles/global.sass";
 import { useScreenSize } from '@/hooks/useScreen';
 import { AnimatePresence, motion } from "framer-motion";
 import React, { FC, useCallback, useState } from 'react';

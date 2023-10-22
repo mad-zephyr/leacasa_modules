@@ -4,10 +4,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>React TypeScript App</title>
-    <script src="bundle.js"></script>
+    <!-- <script src="bundle.js"></script> -->
+    <script src="./moduleMap.js"> </script>
     <link>
 </head>
 <body>
-    <div id="app"></div>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            moduleMap.init();
+        })
+    </script>
+    <div id="app">
+        <div class="rootMap"></div>
+    </div>
 </body>
 </html>

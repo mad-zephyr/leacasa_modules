@@ -1,5 +1,7 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin'); 
-const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const { CleanWebpackPlugin } = require("clean-webpack-plugin");
+const MiniCssExtractPlugin = require("mini-css-extract-plugin"); 
+
 const path = require('path'); 
 
 const isDevelopment = process.env.NODE_ENV !== 'production';
@@ -31,7 +33,9 @@ const commonConfig = {
   // Общие настройки для обоих режимов
   output: {
       path: path.resolve(__dirname, 'dist'),
-      filename: isDevelopment ? '[name].bundle.js' : '[name].[contenthash].js',
+      filename: isDevelopment 
+        ? '[name].bundle.js' 
+        : '[name].[contenthash].js',
   },
   devtool: 'source-map',
   devServer: {
@@ -63,6 +67,9 @@ const commonConfig = {
       {
         test: /\.(ttf|eot|woff|woff2|svg)$/,
         type: 'asset/resource',
+        generator: {
+          filename: 'fonts/[name][ext]'
+        }
       },
       {
         test: /\.(sass|css)$/,
@@ -102,7 +109,8 @@ const commonConfig = {
     }),
     new MiniCssExtractPlugin({
       filename: 'styles.css' 
-    })
+    }),
+    // new CleanWebpackPlugin(), 
   ],
 };
 
